@@ -4,32 +4,36 @@ import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
+/*
+Начало всех задач:
+Создаём квадратную матрицу, размер вводим с клавиатуры. Заполняем
+случайными числами в диапазоне от 0 до 50. И выводим на консоль(в виде
+матрицы).
+1) Поcчитать сумму четных элементов стоящих на главной диагонали
+ */
+
 public class Task1 {
     public static void main(String[] args) {
-
-
-        Scanner scanner = new Scanner(System.in);
         Random random = new Random();
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Введите размер квадратной матрицы ");
+        int a = scanner.nextInt();
 
-        boolean[] array = new boolean[11];
+        int[][] array = new int[a][a];
+        for (int i = 0; i< array.length; i++) {
+            for (int j = 0; j< array[i].length; j++)
+                array[i][j]= random.nextInt(50);
+        }
+
+        int sum = 0;
         for (int i = 0; i < array.length; i++) {
-            System.out.print("введи число ");
-            int a = scanner.nextInt();
-            int b = random.nextInt(2);
-            if (a == b) {
-                array[i] = true;
+            for (int j = 0; j < array.length; j++) {
+                System.out.print(array[i][j] + " ");
+                if (i==j) sum+=array[i][j];
             }
+            System.out.println();
         }
-        int count = 0;
-        System.out.println(Arrays.toString(array));
-        for (boolean n : array) {
-            if (n) count++;
-        }
-        if (count< (double)array.length/2) {
-            System.out.println("комп выиграл");
-            System.out.println("True = " + count);
-            System.out.println((double)array.length/2);
-        } else { System.out.println("человек выиграл");System.out.println("True = " + count);System.out.println((double)array.length/2);
-        }
+        System.out.println("Сумма элементов главной диагонали "+sum);
+
     }
 }
