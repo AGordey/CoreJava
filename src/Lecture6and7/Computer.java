@@ -74,6 +74,7 @@ public class Computer {
     public void off() {
         if (isWork == true && fortune() == true && sgorel == false) {
             System.out.println("Компьютер выключился");
+            isWork = false;
         } else if (sgorel == true) {
             System.out.println("Компьютер сгорел, уже выключать нечего");
         } else if (isWork==false) {
@@ -87,7 +88,6 @@ public class Computer {
 
     public static void main(String[] args) {
         Computer comp = new Computer("Intel i7", 32, 1000, 4);
-        comp.off();
     }
 }
 
