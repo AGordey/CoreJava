@@ -8,14 +8,17 @@ public class Rocket {
     boolean beforeStartCheck = false;
 
     public void start() {
-        System.out.println("Ракета "+getName()+" успешно стартанула с грузом в "+getWeight()+" т.");
+        System.out.println("Ракета " + getName() + " успешно стартанула с грузом в " + getWeight() + " т.");
     }
 
     public boolean beforeStartCheck() {
         Random random = new Random();
         int a = random.nextInt(10);
-        if (a%2==0) beforeStartCheck=true;
+        if (a % 2 == 0) beforeStartCheck = true;
         return beforeStartCheck;
+    }
+
+    public Rocket() {
     }
 
     public Rocket(String name, int weight) {

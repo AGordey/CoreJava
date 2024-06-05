@@ -15,9 +15,9 @@ public class Cosmodrome {
         this.rocket = rocket;
     }
 
-    private void start() throws InterruptedException {
+    public void start() throws InterruptedException {
         if (rocket.beforeStartCheck()) {
-            for (int i = 9; i >=0; i--) {
+            for (int i = 9; i >= 0; i--) {
                 System.out.print(i + " ");
                 Thread.sleep(100);
             }
@@ -25,11 +25,12 @@ public class Cosmodrome {
             rocket.start();
         } else {
             System.out.println("Предстартовая проверка неудачная");
-        };
+        }
+        ;
     }
 
     public static void main(String[] args) throws InterruptedException {
-        Cosmodrome cosm = new Cosmodrome(new Rocket("Marusia",5));
+        Cosmodrome cosm = new Cosmodrome(new Rocket("Marusia", 5));
         cosm.start();
     }
 
