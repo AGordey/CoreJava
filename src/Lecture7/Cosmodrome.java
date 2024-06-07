@@ -1,7 +1,7 @@
-package Lecture8;
+package Lecture7;
 
 public class Cosmodrome {
-    Rocket rocket;
+    private Rocket rocket;
 
     public Cosmodrome(Rocket rocket) {
         this.rocket = rocket;
@@ -24,7 +24,7 @@ public class Cosmodrome {
             System.out.println();
             rocket.start();
         } else {
-            System.out.println("Предстартовая проверка неудачная");
+            System.out.println("Предстартовая проверка ракеты "+ rocket.getName() +" неудачная");
         }
         ;
     }

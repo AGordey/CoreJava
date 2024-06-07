@@ -1,11 +1,10 @@
-package Lecture8;
+package Lecture7;
 
 import java.util.Random;
 
 public class Rocket {
     private String name;
     private int weight;
-    boolean beforeStartCheck = false;
 
     public void start() {
         System.out.println("Ракета " + getName() + " успешно стартанула с грузом в " + getWeight() + " т.");
@@ -13,9 +12,8 @@ public class Rocket {
 
     public boolean beforeStartCheck() {
         Random random = new Random();
-        int a = random.nextInt(10);
-        if (a % 2 == 0) beforeStartCheck = true;
-        return beforeStartCheck;
+        int a = random.nextInt();
+        return a % 2 == 0;
     }
 
     public Rocket() {
