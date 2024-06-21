@@ -1,4 +1,4 @@
-package Lecture10.HW;
+package Lecture11.HwShop;
 
 import java.util.Collections;
 import java.util.Comparator;
@@ -7,11 +7,15 @@ public class Main {
     public static void main(String[] args) {
         Shop shop = new Shop();
 
-        shop.addProductInList(new Product(1, "Колготки ", 50));
-        shop.addProductInList(new Product(2, "Носки ", 120));
-        shop.addProductInList(new Product(3, "Трусы ", 25));
-        shop.addProductInList(new Product(4, "Панталоны ", 75));
-        shop.addProductInList(new Product(5, "Подтяжки ", 70));
+        try {
+            shop.addProductInList(new Product(1, "Колготки ", 50));
+            shop.addProductInList(new Product(2, "Носки ", 120));
+            shop.addProductInList(new Product(2, "Трусы ", 25));
+            shop.addProductInList(new Product(4, "Панталоны ", 75));
+            shop.addProductInList(new Product(5, "Подтяжки ", 70));
+        } catch (DuplicateErrorException e) {
+            System.out.println(e.getMessage());
+        }
         System.out.println("Просто вывели все товары");
         System.out.println(shop.getAllProducts());
         System.out.println("Вывели все товары с сортировкой по цене по возрастанию");

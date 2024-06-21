@@ -1,13 +1,15 @@
 package Lecture10.HW;
 
+import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.List;
 
 public class Shop {
-    private List<Product> list = new LinkedList<>();
+    private List<Product> list;
 
-
+    public Shop() {
+        list = new ArrayList<>();
+    }
 
     public void addProductInList(Product product) {
         if (!list.contains(product)) {
@@ -20,31 +22,33 @@ public class Shop {
     public List<Product> getAllProducts() {
         return list;
     }
-    public void deleteProduct(int idOfProduct) {
-        Iterator<Product> iterator = list.iterator(); // Создаем итератор для перебора элементов списка
 
-        while (iterator.hasNext()) {
-            Product product = iterator.next();
-            if (product.getId() == idOfProduct) {
-                iterator.remove(); // Удаляем продукт с указанным id
-                return; // Завершаем метод после удаления первого продукта с указанным id
+    public void deleteProduct(int idOfProduct) {
+        int index = -1;
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i).getId() == idOfProduct) {
+                index = i;
+                break;
             }
         }
-
-        System.out.println("Продукт с указанным id не найден.");
+    if (index>=0) {
+        list.remove(index);
     }
-    public void editProduct(Product product, String newName, int newPrice) {
-        boolean i = list.contains(product);
-        if (i) {
-            int a = list.indexOf(product);
-            product.setName(newName);
-            product.setPrice(newPrice);
-            list.set(a,product);
+    }
+;
+    public void updateProduct(Product product) {
+        int index = -1;
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i).getId() == product.getId()) {
+                index = i;
+                break;
+            }
         }
-        else {
-            System.out.println("Не нашел объект для редактирования");
+        if (index >= 0) {
+            list.set(index, product);
         }
-
     }
 
 }
+
+
