@@ -1,7 +1,9 @@
 package Lecture11.HwShop;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -17,7 +19,10 @@ public class Main {
             System.out.println(e.getMessage());
         }
         System.out.println("Просто вывели все товары");
-        System.out.println(shop.getAllProducts());
+        List<Product> list1 = shop.getAllProducts();
+        for (int i = 0 ; i <list1.size(); i++){
+            System.out.println(list1.get(i));
+        }
         System.out.println("Вывели все товары с сортировкой по цене по возрастанию");
         Collections.sort(shop.getAllProducts(), new Comparator<Product>() {
             @Override
