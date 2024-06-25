@@ -21,7 +21,7 @@ public class Main {
 
             while (iterator.hasNext()) {
                 String word = iterator.next();
-                if (word.equals(new StringBuffer(word).reverse().toString())) {
+                if (word.equalsIgnoreCase(new StringBuffer(word).reverse().toString())) {  //IgnoreCase что бы не зависило от регистра
                     System.out.println(word);
                     polindrome.add(word);
                 }
